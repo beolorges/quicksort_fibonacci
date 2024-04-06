@@ -52,4 +52,5 @@ int main(int argc, char* argv[]){
         Sort<int>::iQuickSortWInsertionsort(&v, &lastElement, partition);
 
     Utils::printList(v, size);
+    free(v);
 }
