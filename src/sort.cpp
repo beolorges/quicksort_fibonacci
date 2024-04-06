@@ -79,39 +79,38 @@ template <typename T>
 void Sort<T>::iQuickSortWInsertionsort(T** begin, T** end, int minPartition){
     insertionSort(begin, end);
 
-    // std::stack<T**> stack;
-    // stack.push(begin);
-    // stack.push(end);
+    std::stack<T**> stack;
+    stack.push(begin);
+    stack.push(end);
 
-    // while (!stack.empty())
-    // {
-    //     T** left = stack.top();
-    //     stack.pop();
+    while (!stack.empty())
+    {
+        T** left = stack.top();
+        stack.pop();
 
-    //     T** right = stack.top();
-    //     stack.pop();
+        T** right = stack.top();
+        stack.pop();
 
-    //     if(right - left <= minPartition){
-    //         insertionSort(left, right);
-    //     } else {
-    //         T** pivot = partition(left, right);
-    //         if(pivot - 1 > left){
-    //             stack.push(left);
-    //             stack.push(pivot - 1);
-    //         }
+        if(right - left <= minPartition){
+            insertionSort(left, right);
+        } else {
+            T** pivot = partition(left, right);
+            if(pivot - 1 > left){
+                stack.push(left);
+                stack.push(pivot - 1);
+            }
 
-    //         if(pivot + 1 < right){
-    //             stack.push(pivot + 1);
-    //             stack.push(right);
-    //         }
-    //     }
-    // }
+            if(pivot + 1 < right){
+                stack.push(pivot + 1);
+                stack.push(right);
+            }
+        }
+    }
 
 };
 
 template <typename T>
 void Sort<T>::insertionSort(T** begin, T** end){
-    return;
     T* t1, *t2;
     T val;
 

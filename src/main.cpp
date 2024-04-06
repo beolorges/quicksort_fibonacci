@@ -38,17 +38,18 @@ int main(int argc, char* argv[]){
     }
 
     v = Utils::getRandomList(size, 0, 100);   
+    int* lastElement = (v+size);
     if(recursive && !insertion)
-        Sort<int>::rQuickSort(&v, (&v + size));
+        Sort<int>::rQuickSort(&v, &lastElement);
     
     else if(recursive && insertion)
-        Sort<int>::rQuickSortWInsertionsort(&v, &v + size, partition);
+        Sort<int>::rQuickSortWInsertionsort(&v, &lastElement, partition);
     
     else if(!recursive && !insertion)
-        Sort<int>::iQuickSort(&v, &v + size);
+        Sort<int>::iQuickSort(&v, &lastElement);
 
     else if(!recursive && insertion)
-        Sort<int>::iQuickSortWInsertionsort(&v, &v + size, partition);
+        Sort<int>::iQuickSortWInsertionsort(&v, &lastElement, partition);
 
     Utils::printList(v, size);
 }
