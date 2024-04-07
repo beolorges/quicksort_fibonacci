@@ -32,7 +32,7 @@ unsigned long long Utils::iGenerateFibonnacci(int timeLimit, std::chrono::_V2::s
 
     while (elapsedSeconds.count() < timeLimit)
     {
-        unsigned long long temp = iGenerateFibonnacci(count);
+        iGenerateFibonnacci(count);
 
         count++;
 
@@ -70,7 +70,7 @@ unsigned long long Utils::rGenerateFibonnacci(int timeLimit, std::chrono::_V2::s
 
     while (elapsedSeconds.count() < timeLimit)
     {
-        unsigned long long temp = rGenerateFibonnacci(count);
+        rGenerateFibonnacci(count);
 
         count++;
 
